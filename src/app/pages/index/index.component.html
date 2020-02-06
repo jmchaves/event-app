@@ -1,0 +1,14 @@
+
+<app-list
+  [eventList]="eventList"
+  [displayLoading]="displayLoadingLine"
+  (search)="searchByZipCode($event.zipcode)"
+  (nextPage)="goToNextPage()"
+  (selectEvent)="selectEvent($event.event)">
+</app-list>
+<app-map
+  [eventList]="eventList"
+  [selectedEvent]="selectedEvent"
+  [center]="mapCenter"
+  [zoom]="mapZoom"
+  ></app-map>

@@ -1,0 +1,17 @@
+<div class="container" [ngStyle]="{ 'height' : !displayMenu ? '71px' : '' }">
+  <app-search-bar (search)="searchByZipCode($event.zipcode)"></app-search-bar>
+  <app-loading-line *ngIf="displayLoading"></app-loading-line>
+  <div class="list" *ngIf="eventList" [ngStyle]="{ 'opacity' : displayLoading ? '0.3' : '' }"
+      infiniteScroll
+      [infiniteScrollDistance]="0.05"
+      [infiniteScrollThrottle]="50"
+      [scrollWindow]="false"
+      (scrolled)="scrolled()">
+    <app-event *ngFor="let eve of eventList.events" (click)="sendEvent(eve)" [event]="eve"></app-event>
+    <p *ngIf="!displayLoading && eventList &&  eventList.events.length <= 0" class="no-events-text">
+      No events to show.
+    </p>
+    <app-loading-spinner *ngIf="!displayLoading && eventList && eventList.events.length > 0"></app-loading-spinner>
+  </div>
+  <a href="javascript:void(0)" class="toogle" (click)="displayMenu = !displayMenu">{{ (displayMenu) ? 'Hide List' : 'Show List' }}</a>
+</div>

@@ -1,0 +1,13 @@
+<div id="cover">
+  <div class="tb">
+    <div class="td">
+      <input type="text" [(ngModel)]="zipcode" maxlength="5" #ctrl="ngModel" (keyup)="onKeydown($event)" placeholder="Search by Zip Code">
+    </div>
+    <div class="td" id="s-cover">
+      <button type="button" (click)="searchByZipCode()">
+        <div id="s-circle"></div>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</div>

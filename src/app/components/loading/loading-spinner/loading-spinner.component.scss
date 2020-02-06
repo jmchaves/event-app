@@ -1,0 +1,29 @@
+/*
+In order to get optimal results, please only change the 
+variables above and don't change anything in the actual loader code
+*/
+@keyframes circle-loader {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.loader.simple-circle {
+  margin: auto;
+  margin-top: 29px;
+  transform-origin: center center;
+  border: 3px solid #e0e0e0;
+  border-right-color: #e74c3c;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: circle-loader 1s infinite ease-out;
+}
+
+:host { 
+  height: 60px;
+  display: block;
+}

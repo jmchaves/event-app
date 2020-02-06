@@ -1,0 +1,24 @@
+<div class="post-module">
+  <div class="thumbnail">
+    <div class="date" *ngIf="event.eventDates && event.eventDates[0]">
+      <div class="day"> {{ event.eventDates[0].startDate | date: 'd'}} </div>
+      <div class="month"> {{ event.eventDates[0].startDate | date: 'LLL'}} </div>
+    </div><img [src]="event.featuredImageUrl || 'assets/images/event.jpg'" (error)="updateUrl($event)">
+  </div>
+  <div class="post-content">
+    <h1 class="title"> {{ event.title }} </h1>
+    <h2 class="sub_title"> {{ event.summary }}</h2>
+    <p class="description" *ngIf="displayDescription" [@slideInOut]> 
+      {{ event.description }}
+      <br>
+      <strong>Dates: </strong>
+      <span *ngFor="let date of event.eventDates">
+        {{ date.startDate | date: 'MM/dd/yy'}} to {{ date.startDate | date: 'MM/dd/yy'}} <br>
+      </span>
+     </p>
+     <a href="javascript:void(0)" (click)="displayDescription = !displayDescription"> {{ (displayDescription) ? 'Hide Information' : 'More Information' }}</a>
+    <div class="post-meta">
+      <span class="timestamp" *ngIf="event.eventType">{{ event.eventTypeFormatted }}</span>
+    </div>
+  </div>
+</div>

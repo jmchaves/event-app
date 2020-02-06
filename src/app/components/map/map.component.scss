@@ -1,0 +1,25 @@
+mgl-map {
+  height: 100%;
+  width: 100%;
+  .location-point {
+    height: 30px;
+    width: 30px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-image: url('../../../assets/images/pointLocation.png');
+  }
+}
+
+:host ::ng-deep app-event{
+  .post-content {
+    p {
+      height: 60px;
+      overflow: scroll;
+      overflow-x: hidden;
+    }
+  }
+  .thumbnail {
+    display: none;
+  }
+}
+

@@ -1,0 +1,23 @@
+<mgl-map
+    [style]="'mapbox://styles/mapbox/streets-v9'"
+    [zoom]="zoom"
+    [center]="center" [centerWithPanTo]="true">
+
+  <mgl-popup *ngIf="selectedEvent && selectedEvent.location && selectedEvent.location.point"
+    [lngLat]="[selectedEvent.location.point.longitude, selectedEvent.location.point.latitude]"
+    [closeButton]="false" [closeOnClick]="false" [anchor]="'top'">
+    <div (mouseleave)="selectedEvent = null">
+      <app-event [event]="selectedEvent"></app-event>
+    </div>
+  </mgl-popup>
+
+  <div *ngIf="eventList">
+    <div *ngFor="let eve of eventList.events">
+      <mgl-marker *ngIf="eve.location && eve.location.point"
+        [lngLat]="[eve.location.point.longitude, eve.location.point.latitude]">
+        <div (click)="selectedEvent = eve" class="marker location-point" (mouseenter)="selectedEvent = eve" >
+        </div>
+      </mgl-marker>
+    </div>
+  </div>
+</mgl-map>
