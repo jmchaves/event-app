@@ -35,7 +35,7 @@ Run `npm run compodoc` to generate it.
 
 Run `compodoc -s -r 4201` and navigate to `http://127.0.0.1:4201`, it will show all the app documentation.
 
-### Tech
+## Tech
 This project was built with Angular and Typescript. There is no specific reason why I chose Angular over other JS framework, I could say I feel more comfortable since I have been working with it around 4 years. It brings me all I need to develop an app such as http, router and form modules, and runs really fast. React or other JS framework handles the modules in a different way, adding them when it's needed, and it's easier to create a single component.
 
 No bootstrap or other CSS libraries is used in this project, CSS with SCSS only. I copied some CSS from internet to make it faster like the loading and a few others.
